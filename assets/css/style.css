@@ -1,0 +1,177 @@
+:root {
+  --background-color: #f3f5fc;
+  --default: #0a3871;
+  --decoded-text: #495057;
+  --button-default: #0a3871;
+  --button-secondary: #d8dfe8;
+  --warning-icon-color: #495057;
+  --warning-color: #495057;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter";
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+}
+
+body {
+  padding: 2rem;
+}
+
+.logo img {
+  width: 2rem;
+  height: 3rem;
+}
+
+.hide {
+  opacity: 0;
+  display: none;
+}
+
+#warning {
+  margin: 0.8em 0;
+  font-size: 0.8em;
+  color: var(--warning-color);
+}
+
+#warning span {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  font-size: small;
+  text-align: center;
+  background-color: var(--warning-icon-color);
+  border-radius: 50%;
+  margin: 0.3em;
+  margin-left: 0;
+  color: white;
+}
+
+.user-input {
+  padding: 2em 4em;
+}
+
+.user-input textarea {
+  margin-top: 3em;
+  font-size: 2em;
+  flex-grow: 1;
+  padding: 0.5em;
+  background-color: transparent;
+  color: var(--default);
+  border: none;
+  resize: none;
+}
+
+.button {
+  color: var(--default);
+  background-color: transparent;
+  border: 1px solid var(--button-default);
+  border-radius: 1em;
+  padding: 1em 0;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.button-group button {
+  width: 48%;
+}
+
+.button-group .button-active {
+  background-color: var(--button-default);
+  color: white;
+}
+
+.user-output {
+  width: fit-content;
+  background-color: white;
+  border-radius: 1em;
+  padding: 2em;
+  overflow: hidden;
+  width: 20vw;
+  max-width: 25vw;
+}
+
+.no-message div {
+  padding: 0 2em;
+  text-align: center;
+  font-size: 1em;
+}
+
+.no-message h3 {
+  margin: 1em 0;
+}
+
+.has-message {
+  height: 100%;
+  font-size: 1.3em;
+  line-height: 1.5em;
+  color: var(--decoded-text);
+}
+
+@media screen and (max-width: 1080px) {
+  body {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  body .decripted {
+    height: auto;
+  }
+
+  .user-input {
+    padding: 0;
+  }
+
+  .user-input textarea {
+    padding: 0;
+  }
+
+  .user-output {
+    margin-top: 2em;
+    max-width: none;
+    padding: 1em;
+    align-items: stretch;
+    width: auto;
+  }
+
+  .no-message img {
+    display: none;
+  }
+
+  .no-message h3 {
+    margin: 0;
+    margin-bottom: 0.5em;
+  }
+
+  .has-message button {
+    margin-top: 0.8em;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .button-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-group button {
+    width: auto;
+  }
+
+  .button-group button:last-child {
+    margin-top: 1em;
+  }
+
+  .no-message div {
+    padding: 0;
+  }
+}

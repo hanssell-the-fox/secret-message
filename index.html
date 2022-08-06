@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt=br">
+  <head>
+    <title>Decodificador de Texto</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/flexbox.css" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <script src="assets/app.js" defer></script>
+  </head>
+  <body class="flex content-stretched">
+    <header>
+      <picture class="logo">
+        <source media="(min-width: 650px)" srcset="assets/img/Vector@2x.png" />
+        <source media="(min-width: 465px)" srcset="assets/img/Vector.png" />
+        <img src="assets/img/Vector@3x.png" alt="" />
+      </picture>
+    </header>
+    <main class="flex column fill content-stretched user-input">
+      <form class="flex column fill">
+        <textarea
+          name="secret-phrase"
+          placeholder="Digite seu texto"
+        ></textarea>
+        <span id="warning" class="flex on-center align-left">
+          <span>!</span> Apenas letras minúsculas e sem acento
+        </span>
+        <div class="flex align-between button-group">
+          <button class="button button-active">Criptografar</button>
+          <button class="button">Descriptografar</button>
+        </div>
+      </form>
+    </main>
+    <aside class="flex column on-center user-output">
+      <div class="no-message">
+        <img src="assets/img/diamond.svg" alt="" />
+        <div>
+          <h3>Nenhuma mensagem encontrada</h3>
+          <p>
+            Digite um texto que você deseja criptografar ou descriptografar.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex column align-between has-message hide">
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu
+          volutpat odio facilisis mauris sit. Amet volutpat consequat mauris
+          nunc congue nisi. In hac habitasse platea dictumst. Vestibulum lectus
+          mauris ultrices eros
+        </span>
+        <button class="button">Copiar</button>
+      </div>
+    </aside>
+  </body>
+</html>
