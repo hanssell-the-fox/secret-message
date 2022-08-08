@@ -26,14 +26,15 @@
       <form class="flex column fill">
         <textarea
           name="secret-phrase"
+          id="secret-phrase"
           placeholder="Digite seu texto"
         ></textarea>
         <span id="warning" class="flex on-center align-left">
           <span>!</span> Apenas letras minúsculas e sem acento
         </span>
         <div class="flex align-between button-group">
-          <button class="button button-active">Criptografar</button>
-          <button class="button">Descriptografar</button>
+          <button class="button button-active" id="crypt">Criptografar</button>
+          <button class="button" id="decrypt">Descriptografar</button>
         </div>
       </form>
     </main>
@@ -49,14 +50,8 @@
       </div>
 
       <div class="flex column align-between has-message hide">
-        <span>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu
-          volutpat odio facilisis mauris sit. Amet volutpat consequat mauris
-          nunc congue nisi. In hac habitasse platea dictumst. Vestibulum lectus
-          mauris ultrices eros
-        </span>
-        <button class="button">Copiar</button>
+        <span></span>
+        <button class="button" id="copy">Copiar</button>
       </div>
     </aside>
   </body>
