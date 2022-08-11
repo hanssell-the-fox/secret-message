@@ -10,7 +10,6 @@
       href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/flexbox.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/mobile.css" />
     <script src="assets/app.js" defer></script>
@@ -36,8 +35,8 @@
           <span>!</span> Apenas letras minúsculas e sem acento
         </span>
         <div class="button-group">
-          <button class="button button-active" id="crypt">Criptografar</button>
-          <button class="button" id="decrypt">Descriptografar</button>
+          <button class="button button-active" id="encode">Criptografar</button>
+          <button class="button" id="decode">Descriptografar</button>
         </div>
       </form>
     </main>
@@ -55,7 +54,7 @@
         </div>
 
         <div class="decrypted hide">
-          <span></span>
+          <span id="message"></span>
           <button class="button" id="copy">Copiar</button>
         </div>
       </section>

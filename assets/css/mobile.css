@@ -47,12 +47,18 @@
 
 @media screen and (max-width: 380px) {
   .input {
-    padding: 1em 0;
+    padding: 0;
+    padding-top: 1em;
+  }
+
+  .input form {
+    min-height: 65vh;
   }
 
   .button-group {
     flex-direction: column;
     align-items: stretch;
+    margin-bottom: 1em;
   }
 
   .button-group button {

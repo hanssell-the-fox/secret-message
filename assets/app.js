@@ -1,51 +1,51 @@
-const replaceMap = new Map();
+const Secret = {
+  encode: true,
+  decode: false,
+  keys: new Map(),
+};
 
-replaceMap.set('e', 'enter');
-replaceMap.set('i', 'imes');
-replaceMap.set('a', 'ai');
-replaceMap.set('o', 'ober');
-replaceMap.set('u', 'ufat');
+Secret.keys.set("e", "enter");
+Secret.keys.set("i", "imes");
+Secret.keys.set("a", "ai");
+Secret.keys.set("o", "ober");
+Secret.keys.set("u", "ufat");
 
-const textArea = document.getElementById("secret-phrase");
-const cryptButton = document.getElementById("crypt");
-const decryptButton = document.getElementById("decrypt");
-const copyButton = document.getElementById("copy");
+const toggleMessageView = () => {
+  const messageOutput = document.querySelector(".output");
+  const disclaimer = messageOutput.querySelector(".disclaimer");
+  const messages = messageOutput.querySelector(".decrypted");
+  disclaimer.classList.add("hide");
+  messages.classList.remove("hide");
+};
 
-const noMessage = document.querySelector(".message .disclaimer");
-const hasMessage = document.querySelector(".message .decrypted");
-const message = hasMessage.querySelector("span");
+const updateMessageOutput = (newMessage) => {
+  document.querySelector("#message").textContent = newMessage;
+  toggleMessageView();
+};
 
-cryptButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  let phrase = textArea.value;
+const readMessage = (mode = Secret.encode) => {
+  let message = document.querySelector("#secret-phrase").value || "";
 
-  for (const vowel of replaceMap){
-    const [key, value] = vowel;
-    const reg = new RegExp(`${key}`, "ig");
-    phrase = phrase.replace(reg, value);
+  for (const key of Secret.keys) {
+    const [item, code] = mode === Secret.encode ? key : key.reverse();
+    const secret = new RegExp(item, "ig");
+    message = message.replace(secret, code);
   }
 
-  noMessage.classList.add("hide");
-  hasMessage.classList.remove("hide");
-  message.textContent = phrase;
+  updateMessageOutput(message);
+};
+
+document.querySelector("#encode").addEventListener("click", (event) => {
+  event.preventDefault();
+  readMessage(Secret.encode);
 });
 
-decryptButton.addEventListener('click', (e) => {
-  e.preventDefault();
-  let phrase = textArea.value;
-
-  for (const vowel of replaceMap){
-    const [key, value] = vowel;
-    const reg = new RegExp(`${value}`, "ig");
-    phrase = phrase.replace(reg, key);
-  }
-
-  noMessage.classList.add("hide");
-  hasMessage.classList.remove("hide");
-  message.textContent = phrase;
+document.querySelector("#decode").addEventListener("click", (event) => {
+  event.preventDefault();
+  readMessage(Secret.decode);
 });
 
-copyButton.addEventListener('click', () => {
-  const phrase = message.textContent
-  navigator.clipboard.writeText(phrase);
+document.querySelector("#copy").addEventListener("click", () => {
+  const content = document.querySelector("#message").textContent;
+  navigator.clipboard.writeText(content);
 });
