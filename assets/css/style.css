@@ -81,6 +81,8 @@ body {
   color: var(--default);
   border: none;
   resize: none;
+  padding: 0.5em;
+  outline: none;
 }
 
 .button {
