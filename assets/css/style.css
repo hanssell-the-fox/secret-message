@@ -28,6 +28,10 @@ body {
   display: flex;
 }
 
+.hide {
+  z-index: -1;
+}
+
 .logo img {
   width: 2rem;
   height: 3rem;
@@ -52,15 +56,27 @@ body {
   color: white;
 }
 
-.user-input {
-  padding: 2em 4em;
+/*
+ * INPUT
+ */
+.input {
+  display: flex;
+  align-items: stretch;
+  padding: 2em;
+  flex-grow: 1;
 }
 
-.user-input textarea {
-  margin-top: 3em;
-  font-size: 2em;
+.input form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 4em;
+}
+
+.input textarea {
+  font-size: 1.2em;
   flex-grow: 1;
-  padding: 0.5em;
   background-color: transparent;
   color: var(--default);
   border: none;
@@ -77,6 +93,11 @@ body {
   cursor: pointer;
 }
 
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
 .button-group button {
   width: 48%;
 }
@@ -86,13 +107,9 @@ body {
   color: white;
 }
 
-.hide {
-  z-index: -1;
-}
-
 /* 
- * OUTPUT
- */
+* OUTPUT
+*/
 .output {
   padding: 2em;
   background-color: white;
