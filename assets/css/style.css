@@ -23,7 +23,9 @@ body {
 }
 
 body {
+  min-width: 20rem;
   padding: 2rem;
+  display: flex;
 }
 
 .logo img {
@@ -89,48 +91,83 @@ body {
   color: white;
 }
 
-.user-output {
-  width: fit-content;
-  background-color: white;
-  border-radius: 1em;
+.hide {
+  z-index: -1;
+}
+
+/* 
+ * OUTPUT
+ */
+
+.output {
   padding: 2em;
-  overflow: hidden;
+  background-color: white;
+  border-radius: 2em;
   width: 20vw;
-  max-width: 25vw;
 }
 
-.no-message div {
-  padding: 0 2em;
+.message {
+  position: relative;
+  height: 100%;
+}
+
+.disclaimer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  user-select: none;
   text-align: center;
-  font-size: 1em;
 }
 
-.no-message h3 {
+.disclaimer img {
+  width: 100%;
+}
+
+.disclaimer h3 {
   margin: 1em 0;
 }
 
-.has-message {
+.decrypted {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-grow: 1;
   height: 100%;
-  font-size: 1.3em;
-  line-height: 1.5em;
-  color: var(--decoded-text);
-  overflow-y: scroll;
 }
 
-.has-message span {
-  word-wrap: break-word;
+.decrypted span {
+  flex-grow: 1;
+  margin-bottom: 2em;
+  overflow-y: auto;
 }
+
+/*
+ * Mobile
+ */
 
 @media screen and (max-width: 1080px) {
   body {
     flex-direction: column;
     align-items: stretch;
-    height: 100vh;
   }
 
-  body .decripted {
-    min-height: 100vh;
-    height: auto;
+  .output {
+    margin-top: 2em;
+    width: 100%;
+  }
+
+  .disclaimer img {
+    display: none;
+  }
+
+  .disclaimer h3 {
+    margin: 0;
+    margin-bottom: 0.8em;
   }
 
   .user-input {
@@ -148,20 +185,6 @@ body {
     align-items: stretch;
     width: auto;
   }
-
-  .no-message img {
-    display: none;
-  }
-
-  .no-message h3 {
-    margin: 0;
-    margin-bottom: 0.5em;
-  }
-
-  .has-message button {
-    margin-top: 0.8em;
-    height: auto;
-  }
 }
 
 @media screen and (max-width: 360px) {
@@ -176,9 +199,5 @@ body {
 
   .button-group button:last-child {
     margin-top: 1em;
-  }
-
-  .no-message div {
-    padding: 0;
   }
 }

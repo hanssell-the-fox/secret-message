@@ -11,8 +11,9 @@ const cryptButton = document.getElementById("crypt");
 const decryptButton = document.getElementById("decrypt");
 const copyButton = document.getElementById("copy");
 
-const noMessage = document.querySelector(".no-message");
-const hasMessage = document.querySelector(".has-message");
+const noMessage = document.querySelector(".message .disclaimer");
+const hasMessage = document.querySelector(".message .decrypted");
+const message = hasMessage.querySelector("span");
 
 cryptButton.addEventListener("click", (e) => {
   e.preventDefault();
@@ -26,7 +27,7 @@ cryptButton.addEventListener("click", (e) => {
 
   noMessage.classList.add("hide");
   hasMessage.classList.remove("hide");
-  hasMessage.firstChild.textContent = phrase;
+  message.textContent = phrase;
 });
 
 decryptButton.addEventListener('click', (e) => {
@@ -41,10 +42,10 @@ decryptButton.addEventListener('click', (e) => {
 
   noMessage.classList.add("hide");
   hasMessage.classList.remove("hide");
-  hasMessage.firstChild.textContent = phrase;
+  message.textContent = phrase;
 });
 
 copyButton.addEventListener('click', () => {
-  const phrase = hasMessage.firstChild.textContent
+  const phrase = message.textContent
   navigator.clipboard.writeText(phrase);
 });
